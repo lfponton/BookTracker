@@ -35,4 +35,6 @@ Actor: Book reader
 8. As a book reader, I want to add a book to my reading list by scanning its barcode, so that I don't have to add it manually.
 9. As a book reader, I want to be able to search for the book online, so that I don't have to add it manually.
 10. As a book reader, I want to be able to share the book on social networks, so that other people can see what I am reading.
+
+
 ... to be continued
