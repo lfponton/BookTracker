@@ -8,7 +8,7 @@
         android:id="@+id/mainFragment"
         android:name="com.example.booktracker.MainFragment"
         android:label="fragment_Main"
-        tools:layout="@layout/fragment_Main" >
+        tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_finishedFragment"
             app:destination="@id/finishedFragment" />
