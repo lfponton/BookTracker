@@ -28,10 +28,10 @@ public class MainFragment extends Fragment {
 
         List<Book> books = new ArrayList<>();
 
-        books.add(new Book("Something1", 1));
-        books.add(new Book("Something2", 2));
-        books.add(new Book("Something3", 3));
-        books.add(new Book("Something4", 4));
+        books.add(new Book("Something1", "Me", 200, "Reading", 1));
+        books.add(new Book("Something1", "Me", 200, "Reading", 1));
+        books.add(new Book("Something1", "Me", 200, "Reading", 1));
+        books.add(new Book("Something1", "Me", 200, "Reading", 1));
 
         BookAdapter adapter = new BookAdapter(books);
 
