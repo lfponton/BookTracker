@@ -3,6 +3,7 @@ package com.example.booktracker;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +18,7 @@ public class MainFragment extends Fragment {
 
     RecyclerView recyclerView;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -25,7 +27,8 @@ public class MainFragment extends Fragment {
         recyclerView = view.findViewById(R.id.rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.hasFixedSize();
-
+        BooksViewModel viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
+/*
         List<Book> books = new ArrayList<>();
 
         books.add(new Book("Something1", "Me", 200, "Reading", 1));
@@ -33,9 +36,17 @@ public class MainFragment extends Fragment {
         books.add(new Book("Something1", "Me", 200, "Reading", 1));
         books.add(new Book("Something1", "Me", 200, "Reading", 1));
 
-        BookAdapter adapter = new BookAdapter(books);
+
+ */
+        BookAdapter adapter = new BookAdapter();
+
+        // TODO: include get books to display them in the recycler view
+        if (viewModel.getAllBooks() != null)
+            viewModel.getAllBooks().observe(getViewLifecycleOwner(), adapter::updateBookList);
 
         recyclerView.setAdapter(adapter);
+
+
         return view;
     }
 }

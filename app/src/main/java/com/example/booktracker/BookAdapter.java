@@ -8,15 +8,29 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
     List<Book> books;
 
-    public BookAdapter(List<Book> books) {
-        this.books = books;
+    public BookAdapter() {
+        books = new ArrayList<>();
     }
+
+    public void updateBookList(List<Book> books) {
+        this.books = books;
+        /*
+        books.add(new Book("Something1", "Me", 200, "Reading", 1));
+        books.add(new Book("Something1", "Me", 200, "Reading", 1));
+        books.add(new Book("Something1", "Me", 200, "Reading", 1));
+        books.add(new Book("Something1", "Me", 200, "Reading", 1));
+
+         */
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public BookAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
