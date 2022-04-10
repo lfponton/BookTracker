@@ -21,20 +21,12 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
     public void updateBookList(List<Book> books) {
         this.books = books;
-        /*
-        books.add(new Book("Something1", "Me", 200, "Reading", 1));
-        books.add(new Book("Something1", "Me", 200, "Reading", 1));
-        books.add(new Book("Something1", "Me", 200, "Reading", 1));
-        books.add(new Book("Something1", "Me", 200, "Reading", 1));
-
-         */
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
     public BookAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.book_item, parent, false);
         return new ViewHolder(view);

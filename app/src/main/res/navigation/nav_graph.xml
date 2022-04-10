@@ -8,14 +8,11 @@
         android:id="@+id/mainFragment"
         android:name="com.example.booktracker.MainFragment"
         android:label="fragment_Main"
-        tools:layout="@layout/fragment_main" >
-        <action
-            android:id="@+id/action_mainFragment_to_finishedFragment"
-            app:destination="@id/finishedFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/finishedFragment"
         android:name="com.example.booktracker.FinishedFragment"
         android:label="fragment_finished"
         tools:layout="@layout/fragment_finished" />
+
 </navigation>
