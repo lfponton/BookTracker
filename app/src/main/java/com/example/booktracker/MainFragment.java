@@ -44,10 +44,13 @@ public class MainFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         // TODO: This is not working because LiveData is async. I need to wait for the data to load
+        /*
         if (adapter.getItemCount() == 0)
             recyclerView.setVisibility(View.GONE);
         else
             textView.setVisibility(View.GONE);
+         */
+        textView.setVisibility(View.GONE);
         return view;
     }
 }
