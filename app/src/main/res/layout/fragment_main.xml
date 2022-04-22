@@ -13,9 +13,19 @@
         android:layout_gravity="center"
         android:text="No Books" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="searchFragment"
+        android:text="search" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
 
 </LinearLayout>

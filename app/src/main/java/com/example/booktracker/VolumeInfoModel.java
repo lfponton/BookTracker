@@ -13,4 +13,8 @@ public class VolumeInfoModel {
     private List<String> categories;
     private double averageRating;
     private ImageLinksAPIModel imageLinks;
+
+    public String getTitle() {
+        return title;
+    }
 }

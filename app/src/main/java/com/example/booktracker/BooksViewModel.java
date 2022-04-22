@@ -27,4 +27,13 @@ public class BooksViewModel extends AndroidViewModel {
     public void deleteAllBooks() {
         repository.deleteAllBooks();
     }
+
+    public LiveData<List<ItemAPIModel>> getSearchedBook() {
+        return repository.getSearchedBook();
+    }
+
+    public void searchForBook(String s) {
+        repository.searchForBook(s);
+    }
+
 }

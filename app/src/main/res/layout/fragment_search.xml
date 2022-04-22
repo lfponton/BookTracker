@@ -13,12 +13,11 @@
         android:hint="Book name" />
 
     <Button
-        android:id="@+id/search_button"
+        android:id="@+id/searchButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:onClick="searchForPokemon"
-        android:text="Request" />
+        android:onClick="searchForBook"
+        android:text="Search" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSearch"
