@@ -19,6 +19,8 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // A valid API KEY for Google API is needed to use this app.
+            buildConfigField 'String', 'API_KEY', API_KEY
         }
     }
     compileOptions {

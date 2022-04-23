@@ -1,6 +1,7 @@
 package com.example.booktracker;
 
 import android.app.Application;
+import android.media.audiofx.DynamicsProcessing;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
@@ -22,7 +23,8 @@ public class BookRepository {
     private final ExecutorService executorService;
     private final MutableLiveData<List<ItemAPIModel>> searchedBook;
 
-    private String googleAPIKey;
+    private static final String API_KEY = BuildConfig.API_KEY;
+
     private BookRepository(Application application) {
         searchedBook = new MutableLiveData<>();
         BookDatabase database = BookDatabase.getInstance(application);
@@ -52,7 +54,7 @@ public class BookRepository {
 
     public void searchForBook(String bookName) {
         GoogleBookAPI googleBookAPI = ServiceGenerator.getGoogleBookAPI();
-        Call<GoogleBookResponse> call = googleBookAPI.searchBooks(googleAPIKey, bookName);
+        Call<GoogleBookResponse> call = googleBookAPI.searchBooks(API_KEY, bookName);
         call.enqueue(new Callback<GoogleBookResponse>() {
             @EverythingIsNonNull
             @Override
