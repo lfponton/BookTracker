@@ -52,6 +52,15 @@ public class ItemAPIModelAdapter extends RecyclerView.Adapter<ItemAPIModelAdapte
         return books.size();
     }
 
+    public interface OnClickListener {
+        void onClick(ItemAPIModel book);
+    }
+
+    private OnClickListener listener;
+
+    public void setOnClickListener(OnClickListener listener) {
+        this.listener = listener;
+    }
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView book;
         TextView author;
@@ -62,6 +71,9 @@ public class ItemAPIModelAdapter extends RecyclerView.Adapter<ItemAPIModelAdapte
             book = itemView.findViewById(R.id.book);
             author = itemView.findViewById(R.id.author);
             icon = itemView.findViewById(R.id.iv_icon);
+            itemView.setOnClickListener(v -> {
+                listener.onClick(books.get(this.getAdapterPosition()));
+            });
         }
     }
 }

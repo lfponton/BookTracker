@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SearchFragment extends Fragment {
 
@@ -36,7 +37,9 @@ public class SearchFragment extends Fragment {
         ItemAPIModelAdapter adapter = new ItemAPIModelAdapter();
         recyclerView.setAdapter(adapter);
         viewModel.getSearchedBook().observe(getViewLifecycleOwner(), adapter::updateBookList);
-
+        adapter.setOnClickListener(book -> {
+            Toast.makeText(view.getContext(), book.getVolumeInfo().getTitle(), Toast.LENGTH_SHORT).show();
+        });
         return view;
 
     }
