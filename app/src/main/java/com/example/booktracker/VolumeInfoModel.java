@@ -17,4 +17,17 @@ public class VolumeInfoModel {
     public String getTitle() {
         return title;
     }
+
+    public String getAuthors() {
+        if (authors != null) {
+            return authors.get(0);
+        }
+        else
+            return "UNKNOWN";
+
+    }
+
+    public ImageLinksAPIModel getImageLinks() {
+        return imageLinks;
+    }
 }
