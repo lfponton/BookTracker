@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'androidx.navigation.safeargs'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -44,6 +45,7 @@ android {
 dependencies {
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-auth:21.0.3'
     def nav_version = "2.4.1"
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -101,4 +103,16 @@ dependencies {
 
     //Card view for recyclerview
     implementation 'androidx.cardview:cardview:1.0.0'
+
+    // FireBase
+    // FireBase BoM
+    implementation platform('com.google.firebase:firebase-bom:29.3.1')
+
+    // Firebase SDK for Google Analytics
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation 'com.google.firebase:firebase-analytics'
+
+    // Firebase Auth
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+
 }
