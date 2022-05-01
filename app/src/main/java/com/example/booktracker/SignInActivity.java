@@ -2,6 +2,7 @@ package com.example.booktracker;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -12,6 +13,8 @@ import android.widget.Toast;
 
 import com.example.booktracker.viewmodels.SignInViewModel;
 import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 import java.util.Arrays;
 import java.util.List;
@@ -55,9 +58,11 @@ public class SignInActivity extends AppCompatActivity {
         Intent signInIntent = AuthUI.getInstance()
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
-                //.setLogo(R.drawable.logo)
+                .setLogo(R.drawable.ic_logo)
                 .build();
 
         activityResultLauncher.launch(signInIntent);
     }
+
+
 }

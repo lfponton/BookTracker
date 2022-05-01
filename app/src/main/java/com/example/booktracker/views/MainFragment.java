@@ -42,7 +42,7 @@ public class MainFragment extends Fragment {
         BooksViewModel viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
 
         // Delete and insert here for development purposes
-        //viewModel.deleteAllBooks();
+        viewModel.deleteAllBooks();
         viewModel.insert( new Book("Something1", "Me", 200, "Reading", 1));
 
         BookAdapter adapter = new BookAdapter();

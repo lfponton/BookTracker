@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/lfpon/AndroidStudioProjects/BookTracker/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/lfpon/AndroidStudioProjects/BookTracker/app/src/main/res/drawable/ic_logo.xml" value="0.225" />
+        <entry key="..\:/Users/lfpon/AndroidStudioProjects/BookTracker/app/src/main/res/layout/activity_main.xml" value="0.3314814814814815" />
         <entry key="..\:/Users/lfpon/AndroidStudioProjects/BookTracker/app/src/main/res/layout/book_item.xml" value="0.33" />
         <entry key="..\:/Users/lfpon/AndroidStudioProjects/BookTracker/app/src/main/res/layout/fragment_Main.xml" value="0.3109375" />
         <entry key="..\:/Users/lfpon/AndroidStudioProjects/BookTracker/app/src/main/res/layout/fragment_finished.xml" value="0.3109375" />
@@ -12,6 +13,7 @@
         <entry key="..\:/Users/lfpon/AndroidStudioProjects/BookTracker/app/src/main/res/layout/fragment_search.xml" value="0.55" />
         <entry key="..\:/Users/lfpon/AndroidStudioProjects/BookTracker/app/src/main/res/layout/fragment_searched_book_details.xml" value="0.3109375" />
         <entry key="..\:/Users/lfpon/AndroidStudioProjects/BookTracker/app/src/main/res/layout/signin_activity.xml" value="0.3109375" />
+        <entry key="..\:/Users/lfpon/AndroidStudioProjects/BookTracker/app/src/main/res/menu/main_menu.xml" value="0.3109375" />
       </map>
     </option>
   </component>
