@@ -14,6 +14,8 @@ import com.example.booktracker.database.BookDatabase;
 import com.example.booktracker.models.Book;
 import com.example.booktracker.models.api.GoogleBookResponse;
 import com.example.booktracker.models.api.ItemAPIModel;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -30,8 +32,12 @@ public class BookRepository {
     private final LiveData<List<Book>> allBooks;
     private final ExecutorService executorService;
     private final MutableLiveData<List<ItemAPIModel>> searchedBook;
+    private DatabaseReference myRef;
+    private BookLiveData book;
 
-    private static  final String API_KEY = BuildConfig.API_KEY;
+    //private BookRepository() {}
+
+    private static final String API_KEY = BuildConfig.API_KEY;
 
     private BookRepository(Application application) {
         searchedBook = new MutableLiveData<>();
@@ -47,6 +53,20 @@ public class BookRepository {
 
         return instance;
     }
+    // Firebase
+    public void init(String userId) {
+        myRef = FirebaseDatabase.getInstance().getReference().child("users").child(userId);
+        book = new BookLiveData(myRef);
+    }
+
+    public void saveBook(Book book) {
+        myRef.setValue(book);
+    }
+
+    public BookLiveData getBook() {
+        return book;
+    }
+    // End of Firebase
 
     public LiveData<List<Book>> getAllBooks() {
         return allBooks;
