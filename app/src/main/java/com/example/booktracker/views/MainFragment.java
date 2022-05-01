@@ -20,12 +20,13 @@ import com.example.booktracker.models.Book;
 import com.example.booktracker.viewmodels.BooksViewModel;
 import com.example.booktracker.R;
 import com.example.booktracker.adapters.BookAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainFragment extends Fragment {
 
     RecyclerView recyclerView;
     TextView textView;
-    Button button;
+    FloatingActionButton button;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,7 +35,7 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         recyclerView = view.findViewById(R.id.rv);
         textView = view.findViewById(R.id.textView);
-        button = view.findViewById(R.id.button);
+        button = view.findViewById(R.id.fab);
         button.setOnClickListener(v -> searchFragment());
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.hasFixedSize();
