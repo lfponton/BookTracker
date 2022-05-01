@@ -1,11 +1,19 @@
-package com.example.booktracker;
+package com.example.booktracker.repositories;
 
 import android.app.Application;
-import android.media.audiofx.DynamicsProcessing;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
+import com.example.booktracker.BuildConfig;
+import com.example.booktracker.api.GoogleBookAPI;
+import com.example.booktracker.api.ServiceGenerator;
+import com.example.booktracker.database.BookDao;
+import com.example.booktracker.database.BookDatabase;
+import com.example.booktracker.models.Book;
+import com.example.booktracker.models.api.GoogleBookResponse;
+import com.example.booktracker.models.api.ItemAPIModel;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -23,7 +31,7 @@ public class BookRepository {
     private final ExecutorService executorService;
     private final MutableLiveData<List<ItemAPIModel>> searchedBook;
 
-    private static final String API_KEY = BuildConfig.API_KEY;
+    private static  final String API_KEY = BuildConfig.API_KEY;
 
     private BookRepository(Application application) {
         searchedBook = new MutableLiveData<>();

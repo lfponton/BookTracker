@@ -1,4 +1,4 @@
-package com.example.booktracker;
+package com.example.booktracker.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

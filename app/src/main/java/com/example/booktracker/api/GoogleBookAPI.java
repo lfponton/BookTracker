@@ -1,4 +1,6 @@
-package com.example.booktracker;
+package com.example.booktracker.api;
+
+import com.example.booktracker.models.api.GoogleBookResponse;
 
 import retrofit2.http.GET;
 import retrofit2.Call;

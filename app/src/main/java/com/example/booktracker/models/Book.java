@@ -1,4 +1,4 @@
-package com.example.booktracker;
+package com.example.booktracker.models;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -14,7 +14,7 @@ public class Book {
     private String type; // TODO: should be an enum
     private int iconId;
 
-    Book(String title, String author, int pages, String type, int iconId) {
+    public Book(String title, String author, int pages, String type, int iconId) {
         this.title = title;
         this.author = author;
         this.pages = pages;

@@ -6,7 +6,7 @@
     app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.booktracker.MainFragment"
+        android:name="com.example.booktracker.views.MainFragment"
         android:label="fragment_Main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -15,13 +15,29 @@
     </fragment>
     <fragment
         android:id="@+id/finishedFragment"
-        android:name="com.example.booktracker.FinishedFragment"
+        android:name="com.example.booktracker.views.FinishedFragment"
         android:label="fragment_finished"
         tools:layout="@layout/fragment_finished" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.booktracker.SearchFragment"
+        android:name="com.example.booktracker.views.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_searchedBookDetailsFragment"
+            app:destination="@id/searchedBookDetailsFragment">
+            <argument
+                android:name="book"
+                app:argType="com.example.booktracker.models.api.ItemAPIModel"
+                app:nullable="true"
+                android:defaultValue="@null"
+                />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/searchedBookDetailsFragment"
+        android:name="com.example.booktracker.views.SearchedBookDetailsFragment"
+        android:label="fragment_searched_book_details"
+        tools:layout="@layout/fragment_searched_book_details" />
 
 </navigation>

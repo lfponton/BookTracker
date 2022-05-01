@@ -1,4 +1,4 @@
-package com.example.booktracker;
+package com.example.booktracker.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.booktracker.R;
+import com.example.booktracker.models.Book;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.booktracker;
+package com.example.booktracker.models.api;
 
 import java.util.List;
 

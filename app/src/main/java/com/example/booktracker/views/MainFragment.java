@@ -1,13 +1,11 @@
-package com.example.booktracker;
+package com.example.booktracker.views;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,9 +16,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import com.example.booktracker.models.Book;
+import com.example.booktracker.viewmodels.BooksViewModel;
+import com.example.booktracker.R;
+import com.example.booktracker.adapters.BookAdapter;
 
 public class MainFragment extends Fragment {
 
@@ -43,22 +42,21 @@ public class MainFragment extends Fragment {
 
         // Delete and insert here for development purposes
         //viewModel.deleteAllBooks();
-        //viewModel.insert( new Book("Something1", "Me", 200, "Reading", 1));
+        viewModel.insert( new Book("Something1", "Me", 200, "Reading", 1));
 
         BookAdapter adapter = new BookAdapter();
 
-        viewModel.getAllBooks().observe(getViewLifecycleOwner(), adapter::updateBookList);
+        viewModel.getAllBooks().observe(getViewLifecycleOwner(), books -> {
+
+            adapter.updateBookList(books);
+            if (adapter.getItemCount() == 0)
+                recyclerView.setVisibility(View.GONE);
+            else
+                textView.setVisibility(View.GONE);
+        });
 
         recyclerView.setAdapter(adapter);
 
-        // TODO: This is not working because LiveData is async. I need to wait for the data to load
-        /*
-        if (adapter.getItemCount() == 0)
-            recyclerView.setVisibility(View.GONE);
-        else
-            textView.setVisibility(View.GONE);
-         */
-        textView.setVisibility(View.GONE);
         return view;
     }
 

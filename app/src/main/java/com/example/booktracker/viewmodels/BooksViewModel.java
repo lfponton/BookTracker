@@ -1,9 +1,13 @@
-package com.example.booktracker;
+package com.example.booktracker.viewmodels;
 
 import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import com.example.booktracker.models.Book;
+import com.example.booktracker.models.api.ItemAPIModel;
+import com.example.booktracker.repositories.BookRepository;
 
 import java.util.List;
 

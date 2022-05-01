@@ -1,4 +1,4 @@
-package com.example.booktracker;
+package com.example.booktracker.database;
 
 import android.content.Context;
 
@@ -6,7 +6,9 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Book.class}, version = 1)
+import com.example.booktracker.models.Book;
+
+@Database(entities = {com.example.booktracker.models.Book.class}, version = 1, exportSchema = false)
 public abstract class BookDatabase extends RoomDatabase {
 
     private static BookDatabase instance;
