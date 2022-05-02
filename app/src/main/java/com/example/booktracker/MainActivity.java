@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void signOut() {
         viewModel.signOut();
-        startLoginActivity();
     }
 
 }

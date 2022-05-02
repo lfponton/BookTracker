@@ -52,13 +52,13 @@ public class SignInActivity extends AppCompatActivity {
 
     public void signIn(View v) {
         List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.GoogleBuilder().build());
+                new AuthUI.IdpConfig.EmailBuilder().build());
 
         Intent signInIntent = AuthUI.getInstance()
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
                 .setLogo(R.drawable.ic_logo)
+                .setIsSmartLockEnabled(false)
                 .build();
 
         activityResultLauncher.launch(signInIntent);
