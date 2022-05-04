@@ -26,12 +26,6 @@
         <action
             android:id="@+id/action_searchFragment_to_searchedBookDetailsFragment"
             app:destination="@id/searchedBookDetailsFragment">
-            <argument
-                android:name="book"
-                app:argType="com.example.booktracker.models.api.ItemAPIModel"
-                app:nullable="true"
-                android:defaultValue="@null"
-                />
         </action>
     </fragment>
     <fragment

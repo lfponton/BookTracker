@@ -58,7 +58,7 @@ public class SearchFragment extends Fragment {
     public void bookDetails(ItemAPIModel book) {
         NavController navController = NavHostFragment.findNavController(this);
 
-        SearchFragmentDirections.ActionSearchFragmentToSearchedBookDetailsFragment action =
+        /*SearchFragmentDirections.ActionSearchFragmentToSearchedBookDetailsFragment action =
                 SearchFragmentDirections.actionSearchFragmentToSearchedBookDetailsFragment();
         action.setBook(book);
         navController.navigate(
@@ -69,5 +69,7 @@ public class SearchFragment extends Fragment {
                         .build()
         );
 
+
+         */
     }
 }

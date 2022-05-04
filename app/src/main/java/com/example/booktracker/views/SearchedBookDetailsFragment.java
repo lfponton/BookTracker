@@ -27,8 +27,8 @@ public class SearchedBookDetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_searched_book_details, container, false);
         text = view.findViewById(R.id.bookDetailsName);
-        ItemAPIModel book = SearchFragmentDirections.actionSearchFragmentToSearchedBookDetailsFragment().getBook();
-        text.setText(book.getVolumeInfo().getTitle());
+        //ItemAPIModel book = SearchFragmentDirections.actionSearchFragmentToSearchedBookDetailsFragment().getBook();
+        //text.setText(book.getVolumeInfo().getTitle());
         return view;
     }
 
