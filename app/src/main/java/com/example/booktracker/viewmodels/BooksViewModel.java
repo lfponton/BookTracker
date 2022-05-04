@@ -17,11 +17,20 @@ public class BooksViewModel extends AndroidViewModel {
 
     private final UserRepository userRepository;
     private final BookRepository bookRepository;
+    private ItemAPIModel selectedBook;
 
     public BooksViewModel(Application application) {
         super(application);
         userRepository = UserRepository.getInstance(application);
         bookRepository = BookRepository.getInstance(application);
+    }
+
+    public void setSelectedBook(ItemAPIModel selectedBook) {
+        this.selectedBook = selectedBook;
+    }
+
+    public ItemAPIModel getSelectedBook() {
+        return selectedBook;
     }
 
     public void init() {

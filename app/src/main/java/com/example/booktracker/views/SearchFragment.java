@@ -24,9 +24,10 @@ import com.example.booktracker.adapters.ItemAPIModelAdapter;
 
 public class SearchFragment extends Fragment {
 
-    RecyclerView recyclerView;
-    EditText editText;
-    Button button;
+    private BooksViewModel viewModel;
+    private RecyclerView recyclerView;
+    private EditText editText;
+    private Button button;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,7 +40,7 @@ public class SearchFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.hasFixedSize();
-        BooksViewModel viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
+        viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
         button.setOnClickListener(v -> searchForBook(viewModel));
         ItemAPIModelAdapter adapter = new ItemAPIModelAdapter();
         recyclerView.setAdapter(adapter);
@@ -58,18 +59,15 @@ public class SearchFragment extends Fragment {
     public void bookDetails(ItemAPIModel book) {
         NavController navController = NavHostFragment.findNavController(this);
 
-        /*SearchFragmentDirections.ActionSearchFragmentToSearchedBookDetailsFragment action =
-                SearchFragmentDirections.actionSearchFragmentToSearchedBookDetailsFragment();
-        action.setBook(book);
+        viewModel.setSelectedBook(book);
         navController.navigate(
-                action,
+                R.id.action_searchFragment_to_searchedBookDetailsFragment,
+                null,
                 new NavOptions.Builder()
                         .setEnterAnim(android.R.animator.fade_in)
                         .setExitAnim(android.R.animator.fade_out)
                         .build()
         );
 
-
-         */
     }
 }
