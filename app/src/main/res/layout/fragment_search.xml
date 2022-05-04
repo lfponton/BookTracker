@@ -6,6 +6,7 @@
     tools:context=".views.SearchFragment"
     android:orientation="vertical">
 
+
     <EditText
         android:id="@+id/bookName"
         android:layout_width="match_parent"

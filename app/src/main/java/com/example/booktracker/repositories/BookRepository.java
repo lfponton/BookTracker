@@ -34,6 +34,8 @@ public class BookRepository {
     private final MutableLiveData<List<ItemAPIModel>> searchedBook;
     private DatabaseReference myRef;
     private BookLiveData book;
+    private ItemAPIModel selectedBook;
+
 
     //private BookRepository() {}
 
@@ -101,5 +103,13 @@ public class BookRepository {
 
     public LiveData<List<ItemAPIModel>> getSearchedBook() {
         return searchedBook;
+    }
+
+    public void setSelectedBook(ItemAPIModel selectedBook) {
+        this.selectedBook = selectedBook;
+    }
+
+    public ItemAPIModel getSelectedBook() {
+        return selectedBook;
     }
 }
