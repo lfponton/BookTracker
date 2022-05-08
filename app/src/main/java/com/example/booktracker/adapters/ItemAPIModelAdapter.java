@@ -11,19 +11,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.booktracker.R;
-import com.example.booktracker.models.api.ItemAPIModel;
+import com.example.booktracker.models.api.Book;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemAPIModelAdapter extends RecyclerView.Adapter<ItemAPIModelAdapter.ViewHolder> {
-    List<ItemAPIModel> books;
+    List<Book> books;
 
     public ItemAPIModelAdapter() {
         books = new ArrayList<>();
     }
 
-    public void updateBookList(List<ItemAPIModel> books) {
+    public void updateBookList(List<Book> books) {
         this.books = books;
         notifyDataSetChanged();
     }
@@ -39,7 +39,12 @@ public class ItemAPIModelAdapter extends RecyclerView.Adapter<ItemAPIModelAdapte
     @Override
     public void onBindViewHolder(@NonNull ItemAPIModelAdapter.ViewHolder holder, int position) {
         holder.book.setText(books.get(position).getVolumeInfo().getTitle());
-        holder.author.setText(books.get(position).getVolumeInfo().getAuthors());
+        if (books.get(position) != null) {
+            holder.author.setText(books.get(position).getVolumeInfo().getAuthors().get(0));
+        }
+        else {
+            holder.author.setText("UNKNOWN");
+        }
         String url = books.get(position).getVolumeInfo().getImageLinks().getThumbnail();
         Glide.with(holder.itemView)
                 .asBitmap()
@@ -55,7 +60,7 @@ public class ItemAPIModelAdapter extends RecyclerView.Adapter<ItemAPIModelAdapte
     }
 
     public interface OnClickListener {
-        void onClick(ItemAPIModel book);
+        void onClick(Book book);
     }
 
     private OnClickListener listener;

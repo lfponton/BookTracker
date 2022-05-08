@@ -9,21 +9,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.booktracker.R;
-import com.example.booktracker.models.Book;
-import com.example.booktracker.models.api.ItemAPIModel;
+import com.example.booktracker.models.api.Book;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
-    List<ItemAPIModel> books;
+    List<Book> books;
 
     public BookAdapter() {
         books = new ArrayList<>();
     }
 
-    public void updateBookList(List<ItemAPIModel> books) {
+    public void updateBookList(List<Book> books) {
         this.books = books;
         notifyDataSetChanged();
     }

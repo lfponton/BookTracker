@@ -9,11 +9,12 @@ import com.example.booktracker.BuildConfig;
 import com.example.booktracker.api.GoogleBookAPI;
 import com.example.booktracker.api.ServiceGenerator;
 import com.example.booktracker.models.api.GoogleBookResponse;
-import com.example.booktracker.models.api.ItemAPIModel;
+import com.example.booktracker.models.api.Book;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -24,11 +25,11 @@ import retrofit2.internal.EverythingIsNonNull;
 public class BookRepository {
     private static BookRepository instance;
     private BooksLiveData allBooks;
-    private final MutableLiveData<List<ItemAPIModel>> searchedBooks;
+    private final MutableLiveData<List<Book>> searchedBooks;
     private DatabaseReference myRef;
     private DatabaseReference booksRef;
     private DatabaseReference bookRef;
-    private ItemAPIModel selectedBook;
+    private Book selectedBook;
     private BookLiveData book;
 
 
@@ -52,7 +53,7 @@ public class BookRepository {
         allBooks = new BooksLiveData(booksRef);
     }
 
-    public void saveBook(ItemAPIModel book) {
+    public void saveBook(Book book) {
         DatabaseReference newChildRef = booksRef.push();
         String key = newChildRef.getKey();
         booksRef.child(key).setValue(book);
@@ -61,8 +62,6 @@ public class BookRepository {
     // End of Firebase
 
     public BooksLiveData getAllBooks() {
-        Query query = myRef.child("books");
-        
         return allBooks;
     }
 
@@ -86,15 +85,15 @@ public class BookRepository {
         });
     }
 
-    public LiveData<List<ItemAPIModel>> getSearchedBooks() {
+    public LiveData<List<Book>> getSearchedBooks() {
         return searchedBooks;
     }
 
-    public void setSelectedBook(ItemAPIModel selectedBook) {
+    public void setSelectedBook(Book selectedBook) {
         this.selectedBook = selectedBook;
     }
 
-    public ItemAPIModel getSelectedBook() {
+    public Book getSelectedBook() {
         return selectedBook;
     }
 }

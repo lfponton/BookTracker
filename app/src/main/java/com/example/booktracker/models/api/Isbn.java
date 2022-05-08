@@ -2,11 +2,13 @@ package com.example.booktracker.models.api;
 
 import java.io.Serializable;
 
-public class IsbnAPIModel implements Serializable {
+public class Isbn implements Serializable {
     private String type;
     private String identifier;
 
-    public IsbnAPIModel(String type, String identifier) {
+    public Isbn() {}
+
+    public Isbn(String type, String identifier) {
         this.type = type;
         this.identifier = identifier;
     }

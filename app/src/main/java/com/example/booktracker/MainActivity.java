@@ -6,11 +6,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.JsonReader;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.booktracker.models.Book;
 import com.example.booktracker.viewmodels.BooksViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.gson.JsonDeserializer;
 
 public class MainActivity extends AppCompatActivity {
     private BooksViewModel viewModel;

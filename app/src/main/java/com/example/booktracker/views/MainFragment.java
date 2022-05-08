@@ -45,7 +45,6 @@ public class MainFragment extends Fragment {
         FirebaseDatabase.getInstance().getReference().child("ItemApiModels");
 
         viewModel.getAllBooks().observe(getViewLifecycleOwner(), books -> {
-
             adapter.updateBookList(books);
             if (adapter.getItemCount() == 0)
                 recyclerView.setVisibility(View.GONE);

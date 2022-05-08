@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.booktracker.models.api.ItemAPIModel;
+import com.example.booktracker.models.api.Book;
 import com.example.booktracker.repositories.BookRepository;
 import com.example.booktracker.repositories.BooksLiveData;
 import com.example.booktracker.repositories.UserRepository;
@@ -24,11 +24,11 @@ public class BooksViewModel extends AndroidViewModel {
         bookRepository = BookRepository.getInstance();
     }
 
-    public void setSelectedBook(ItemAPIModel selectedBook) {
+    public void setSelectedBook(Book selectedBook) {
         bookRepository.setSelectedBook(selectedBook);
     }
 
-    public ItemAPIModel getSelectedBook() {
+    public Book getSelectedBook() {
         return bookRepository.getSelectedBook();
     }
 
@@ -41,7 +41,7 @@ public class BooksViewModel extends AndroidViewModel {
         return userRepository.getCurrentUser();
     }
 
-    public void saveBook(ItemAPIModel book) {
+    public void saveBook(Book book) {
         bookRepository.saveBook(book);
     }
 
@@ -50,11 +50,11 @@ public class BooksViewModel extends AndroidViewModel {
         userRepository.signOut();
     }
 
-    public BooksLiveData getAllBooks() {
+    public LiveData<List<Book>> getAllBooks() {
         return bookRepository.getAllBooks();
     }
 
-    public LiveData<List<ItemAPIModel>> getSearchedBook() {
+    public LiveData<List<Book>> getSearchedBook() {
         return bookRepository.getSearchedBooks();
     }
 

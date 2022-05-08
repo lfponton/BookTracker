@@ -2,22 +2,22 @@ package com.example.booktracker.models.api;
 
 import java.io.Serializable;
 
-public class ItemAPIModel implements Serializable {
+public class Book implements Serializable {
     private String id;
-    private VolumeInfoModel volumeInfo;
+    private VolumeInfo volumeInfo;
 
-    public ItemAPIModel() {}
+    public Book() {}
 
-    public ItemAPIModel(String id, VolumeInfoModel volumeInfo) {
+    public Book(String id, VolumeInfo volumeInfo) {
         this.id = id;
         this.volumeInfo = volumeInfo;
     }
 
-    public VolumeInfoModel getVolumeInfo() {
+    public VolumeInfo getVolumeInfo() {
         return volumeInfo;
     }
 
-    public void setVolumeInfo(VolumeInfoModel volumeInfo) {
+    public void setVolumeInfo(VolumeInfo volumeInfo) {
         this.volumeInfo = volumeInfo;
     }
 

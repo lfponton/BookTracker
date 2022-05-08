@@ -3,36 +3,33 @@ package com.example.booktracker.models.api;
 import java.io.Serializable;
 import java.util.List;
 
-public class VolumeInfoModel implements Serializable {
+public class VolumeInfo implements Serializable {
     private String title;
     private List<String> authors;
     private String publisher;
     private String publishedDate;
     private String description;
-    private List<IsbnAPIModel> industryIdentifiers;
+    private List<Isbn> industryIdentifiers;
     private int pageCount;
     private List<String> categories;
     private double averageRating;
-    private ImageLinksAPIModel imageLinks;
+    private ImageLinks imageLinks;
 
     public String getTitle() {
         return title;
     }
 
-    public String getAuthors() {
-        if (authors != null) {
-            return authors.get(0);
-        }
-        else
-            return "UNKNOWN";
-
+    public List<String> getAuthors() {
+            return authors;
     }
 
-    public VolumeInfoModel(String title, List<String> authors, String publisher,
-                           String publishedDate, String description,
-                           List<IsbnAPIModel> industryIdentifiers, int pageCount,
-                           List<String> categories, double averageRating,
-                           ImageLinksAPIModel imageLinks) {
+    public VolumeInfo() {}
+
+    public VolumeInfo(String title, List<String> authors, String publisher,
+                      String publishedDate, String description,
+                      List<Isbn> industryIdentifiers, int pageCount,
+                      List<String> categories, double averageRating,
+                      ImageLinks imageLinks) {
         this.title = title;
         this.authors = authors;
         this.publisher = publisher;
@@ -45,7 +42,7 @@ public class VolumeInfoModel implements Serializable {
         this.imageLinks = imageLinks;
     }
 
-    public ImageLinksAPIModel getImageLinks() {
+    public ImageLinks getImageLinks() {
         return imageLinks;
     }
 
@@ -81,11 +78,11 @@ public class VolumeInfoModel implements Serializable {
         this.description = description;
     }
 
-    public List<IsbnAPIModel> getIndustryIdentifiers() {
+    public List<Isbn> getIndustryIdentifiers() {
         return industryIdentifiers;
     }
 
-    public void setIndustryIdentifiers(List<IsbnAPIModel> industryIdentifiers) {
+    public void setIndustryIdentifiers(List<Isbn> industryIdentifiers) {
         this.industryIdentifiers = industryIdentifiers;
     }
 
@@ -113,7 +110,7 @@ public class VolumeInfoModel implements Serializable {
         this.averageRating = averageRating;
     }
 
-    public void setImageLinks(ImageLinksAPIModel imageLinks) {
+    public void setImageLinks(ImageLinks imageLinks) {
         this.imageLinks = imageLinks;
     }
 }

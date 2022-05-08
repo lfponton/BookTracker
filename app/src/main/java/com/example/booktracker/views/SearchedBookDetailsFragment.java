@@ -2,13 +2,11 @@ package com.example.booktracker.views;
 
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +16,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.booktracker.R;
-import com.example.booktracker.adapters.ItemAPIModelAdapter;
-import com.example.booktracker.models.api.ItemAPIModel;
+import com.example.booktracker.models.api.Book;
 import com.example.booktracker.viewmodels.BooksViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -40,9 +37,9 @@ public class SearchedBookDetailsFragment extends Fragment {
         bookAuthor = view.findViewById(R.id.bookDetailsAuthor);
         cover = view.findViewById(R.id.bookDetailsCover);
         viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
-        ItemAPIModel book = viewModel.getSelectedBook();
+        Book book = viewModel.getSelectedBook();
         bookTitle.setText(book.getVolumeInfo().getTitle());
-        bookAuthor.setText(book.getVolumeInfo().getAuthors());
+        bookAuthor.setText(book.getVolumeInfo().getAuthors().get(0));
         button = view.findViewById(R.id.fab_save);
         button.setOnClickListener(v -> saveBook(book));
         String url = book.getVolumeInfo().getImageLinks().getThumbnail();
@@ -56,7 +53,7 @@ public class SearchedBookDetailsFragment extends Fragment {
 
     }
 
-    public void saveBook(ItemAPIModel book) {
+    public void saveBook(Book book) {
         viewModel.saveBook(book);
         NavController navController = NavHostFragment.findNavController(this);
         navController.navigate(

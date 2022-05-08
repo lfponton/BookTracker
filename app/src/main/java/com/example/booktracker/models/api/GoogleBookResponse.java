@@ -3,9 +3,9 @@ package com.example.booktracker.models.api;
 import java.util.List;
 
 public class GoogleBookResponse {
-    private List<ItemAPIModel> items;
+    private List<Book> items;
 
-    public List<ItemAPIModel> getItems() {
+    public List<Book> getItems() {
         return items;
     }
 }

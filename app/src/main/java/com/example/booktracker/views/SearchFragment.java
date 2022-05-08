@@ -15,9 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.booktracker.models.api.ItemAPIModel;
+import com.example.booktracker.models.api.Book;
 import com.example.booktracker.viewmodels.BooksViewModel;
 import com.example.booktracker.R;
 import com.example.booktracker.adapters.ItemAPIModelAdapter;
@@ -56,7 +55,7 @@ public class SearchFragment extends Fragment {
             viewModel.searchForBook(bookName);
     }
 
-    public void bookDetails(ItemAPIModel book) {
+    public void bookDetails(Book book) {
         NavController navController = NavHostFragment.findNavController(this);
 
         viewModel.setSelectedBook(book);
