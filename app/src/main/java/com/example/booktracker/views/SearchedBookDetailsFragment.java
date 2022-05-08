@@ -5,6 +5,9 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
@@ -18,12 +21,15 @@ import com.example.booktracker.R;
 import com.example.booktracker.adapters.ItemAPIModelAdapter;
 import com.example.booktracker.models.api.ItemAPIModel;
 import com.example.booktracker.viewmodels.BooksViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class SearchedBookDetailsFragment extends Fragment {
 
     TextView bookTitle;
     TextView bookAuthor;
     ImageView cover;
+    FloatingActionButton button;
+    BooksViewModel viewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,11 +39,12 @@ public class SearchedBookDetailsFragment extends Fragment {
         bookTitle = view.findViewById(R.id.bookDetailsName);
         bookAuthor = view.findViewById(R.id.bookDetailsAuthor);
         cover = view.findViewById(R.id.bookDetailsCover);
-        BooksViewModel viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
+        viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
         ItemAPIModel book = viewModel.getSelectedBook();
         bookTitle.setText(book.getVolumeInfo().getTitle());
         bookAuthor.setText(book.getVolumeInfo().getAuthors());
-
+        button = view.findViewById(R.id.fab_save);
+        button.setOnClickListener(v -> saveBook(book));
         String url = book.getVolumeInfo().getImageLinks().getThumbnail();
         Glide.with(this)
                 .asBitmap()
@@ -46,6 +53,21 @@ public class SearchedBookDetailsFragment extends Fragment {
                 .centerCrop()
                 .into(cover);
         return view;
+
+    }
+
+    public void saveBook(ItemAPIModel book) {
+        viewModel.saveBook(book);
+        NavController navController = NavHostFragment.findNavController(this);
+        navController.navigate(
+                R.id.action_searchedBookDetailsFragment_to_mainFragment,
+                null,
+                new NavOptions.Builder()
+                        .setEnterAnim(android.R.animator.fade_in)
+                        .setExitAnim(android.R.animator.fade_out)
+                        .build()
+        );
+
     }
 
 }

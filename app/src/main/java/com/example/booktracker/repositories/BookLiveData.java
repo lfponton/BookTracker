@@ -1,26 +1,43 @@
 package com.example.booktracker.repositories;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 
-import com.example.booktracker.models.Book;
+import com.example.booktracker.models.api.ItemAPIModel;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
 
-public class BookLiveData extends LiveData<Book> {
-    private final ValueEventListener listener = new ValueEventListener() {
+public class BookLiveData extends LiveData<ItemAPIModel> {
+    private final ChildEventListener listener = new ChildEventListener() {
         @Override
-        public void onDataChange(@NonNull DataSnapshot snapshot) {
-            Book book = snapshot.getValue(Book.class);
-            setValue(book);
+        public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+
+        }
+
+        @Override
+        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+        }
+
+        @Override
+        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+        }
+
+        @Override
+        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
         }
 
         @Override
         public void onCancelled(@NonNull DatabaseError error) {
         }
     };
+
     DatabaseReference databaseReference;
 
     public BookLiveData(DatabaseReference ref) {
@@ -30,7 +47,7 @@ public class BookLiveData extends LiveData<Book> {
     @Override
     protected void onActive() {
         super.onActive();
-        databaseReference.addValueEventListener(listener);
+        databaseReference.addChildEventListener(listener);
     }
 
     @Override
@@ -38,4 +55,6 @@ public class BookLiveData extends LiveData<Book> {
         super.onInactive();
         databaseReference.removeEventListener(listener);
     }
+
+
 }

@@ -6,6 +6,8 @@ public class ItemAPIModel implements Serializable {
     private String id;
     private VolumeInfoModel volumeInfo;
 
+    public ItemAPIModel() {}
+
     public ItemAPIModel(String id, VolumeInfoModel volumeInfo) {
         this.id = id;
         this.volumeInfo = volumeInfo;

@@ -32,6 +32,10 @@
         android:id="@+id/searchedBookDetailsFragment"
         android:name="com.example.booktracker.views.SearchedBookDetailsFragment"
         android:label="fragment_searched_book_details"
-        tools:layout="@layout/fragment_searched_book_details" />
+        tools:layout="@layout/fragment_searched_book_details" >
+        <action
+            android:id="@+id/action_searchedBookDetailsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 
 </navigation>

@@ -13,14 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.booktracker.models.Book;
 import com.example.booktracker.viewmodels.BooksViewModel;
 import com.example.booktracker.R;
 import com.example.booktracker.adapters.BookAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainFragment extends Fragment {
 
@@ -41,11 +40,9 @@ public class MainFragment extends Fragment {
         recyclerView.hasFixedSize();
         BooksViewModel viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
 
-        // Delete and insert here for development purposes
-        viewModel.deleteAllBooks();
-        viewModel.insert( new Book("Something1", "Me", 200, "Reading", 1));
-
         BookAdapter adapter = new BookAdapter();
+
+        FirebaseDatabase.getInstance().getReference().child("ItemApiModels");
 
         viewModel.getAllBooks().observe(getViewLifecycleOwner(), books -> {
 
@@ -57,6 +54,8 @@ public class MainFragment extends Fragment {
         });
 
         recyclerView.setAdapter(adapter);
+
+
 
         return view;
     }

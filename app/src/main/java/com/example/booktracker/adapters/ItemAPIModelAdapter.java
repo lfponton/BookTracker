@@ -1,7 +1,5 @@
 package com.example.booktracker.adapters;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +13,6 @@ import com.bumptech.glide.Glide;
 import com.example.booktracker.R;
 import com.example.booktracker.models.api.ItemAPIModel;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 

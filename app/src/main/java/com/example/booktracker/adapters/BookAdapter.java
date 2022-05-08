@@ -10,19 +10,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.booktracker.R;
 import com.example.booktracker.models.Book;
+import com.example.booktracker.models.api.ItemAPIModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
-    List<Book> books;
+    List<ItemAPIModel> books;
 
     public BookAdapter() {
         books = new ArrayList<>();
     }
 
-    public void updateBookList(List<Book> books) {
+    public void updateBookList(List<ItemAPIModel> books) {
         this.books = books;
         notifyDataSetChanged();
     }
@@ -37,7 +38,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull BookAdapter.ViewHolder holder, int position) {
-        holder.book.setText(books.get(position).getTitle());
+        holder.book.setText(books.get(position).getVolumeInfo().getTitle());
     }
 
     @Override

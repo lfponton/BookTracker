@@ -1,18 +1,16 @@
 package com.example.booktracker.models;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-@Entity(tableName = "books")
 public class Book {
 
-    @PrimaryKey(autoGenerate = true)
     private int id;
     private String title;
     private String author;
     private int pages;
     private String type; // TODO: should be an enum
     private int iconId;
+
+    public Book() {}
 
     public Book(String title, String author, int pages, String type, int iconId) {
         this.title = title;
