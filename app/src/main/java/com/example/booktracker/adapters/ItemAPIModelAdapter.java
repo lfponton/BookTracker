@@ -39,9 +39,9 @@ public class ItemAPIModelAdapter extends RecyclerView.Adapter<ItemAPIModelAdapte
     @Override
     public void onBindViewHolder(@NonNull ItemAPIModelAdapter.ViewHolder holder, int position) {
         holder.book.setText(books.get(position).getVolumeInfo().getTitle());
-        if (books.get(position) != null) {
-            holder.author.setText(books.get(position).getVolumeInfo().getAuthors().get(0));
-        }
+        if (books.get(position).getVolumeInfo().getAuthors() != null) {
+                holder.author.setText(books.get(position).getVolumeInfo().getAuthors().get(0));
+            }
         else {
             holder.author.setText("UNKNOWN");
         }
