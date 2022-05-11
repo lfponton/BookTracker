@@ -6,6 +6,30 @@
     tools:context=".views.MainFragment"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/noBooksReading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="No Books"
+        android:textSize="60sp"/>
+
+    <TextView
+        android:id="@+id/addBooksTip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="You can add new books by using the plus button"
+        android:textSize="60sp"
+        android:layout_marginTop="60dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -16,20 +40,6 @@
         android:layout_margin="16dp"
         android:contentDescription="TODO"
         android:src="@drawable/ic_baseline_add_24" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="No Books" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="16dp" />
-
 
 
 

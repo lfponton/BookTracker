@@ -28,8 +28,6 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
 
-    <!--TODO: Should add this at some point?-->
-    <!--com.google.android.material.bottomnavigation.BottomNavigationView-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

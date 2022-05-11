@@ -8,13 +8,11 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.booktracker.BuildConfig;
 import com.example.booktracker.api.GoogleBookAPI;
 import com.example.booktracker.api.ServiceGenerator;
-import com.example.booktracker.models.api.GoogleBookResponse;
-import com.example.booktracker.models.api.Book;
-import com.google.firebase.database.DataSnapshot;
+import com.example.booktracker.models.GoogleBookResponse;
+import com.example.booktracker.models.Book;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;

@@ -1,4 +1,4 @@
-package com.example.booktracker.models.api;
+package com.example.booktracker.models;
 
 import java.io.Serializable;
 import java.util.List;

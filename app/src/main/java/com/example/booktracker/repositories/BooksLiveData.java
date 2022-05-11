@@ -3,7 +3,7 @@ package com.example.booktracker.repositories;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
-import com.example.booktracker.models.api.Book;
+import com.example.booktracker.models.Book;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

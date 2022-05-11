@@ -5,9 +5,8 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.booktracker.models.api.Book;
+import com.example.booktracker.models.Book;
 import com.example.booktracker.repositories.BookRepository;
-import com.example.booktracker.repositories.BooksLiveData;
 import com.example.booktracker.repositories.UserRepository;
 import com.google.firebase.auth.FirebaseUser;
 

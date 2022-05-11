@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.booktracker.R;
-import com.example.booktracker.models.api.Book;
+import com.example.booktracker.models.Book;
 
 import java.util.ArrayList;
 import java.util.List;

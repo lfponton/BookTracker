@@ -3,64 +3,69 @@ package com.example.booktracker.views;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.booktracker.adapters.ItemAPIModelAdapter;
+import com.example.booktracker.models.Book;
+import com.example.booktracker.viewmodels.BooksViewModel;
 import com.example.booktracker.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FinishedFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FinishedFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FinishedFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FinishedFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FinishedFragment newInstance(String param1, String param2) {
-        FinishedFragment fragment = new FinishedFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    RecyclerView recyclerView;
+    TextView textView;
+    private BooksViewModel viewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_finished, container, false);
+        View view = inflater.inflate(R.layout.fragment_finished, container, false);
+        recyclerView = view.findViewById(R.id.rv);
+        textView = view.findViewById(R.id.finishedBooks);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.hasFixedSize();
+
+        viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
+
+        ItemAPIModelAdapter adapter = new ItemAPIModelAdapter();
+
+        viewModel.getAllBooks().observe(getViewLifecycleOwner(), books -> {
+            adapter.updateBookList(books);
+            if (adapter.getItemCount() == 0)
+                recyclerView.setVisibility(View.GONE);
+            else
+                textView.setVisibility(View.GONE);
+        });
+        recyclerView.setAdapter(adapter);
+        adapter.setOnClickListener(this::bookDetails);
+        return view;
     }
+
+    public void bookDetails(Book book) {
+        NavController navController = NavHostFragment.findNavController(this);
+
+        viewModel.setSelectedBook(book);
+        navController.navigate(
+                R.id.action_finishedFragment_to_finishedBookFragment,
+                null,
+                new NavOptions.Builder()
+                        .setEnterAnim(android.R.animator.fade_in)
+                        .setExitAnim(android.R.animator.fade_out)
+                        .build()
+        );
+
+    }
+
+
 }
