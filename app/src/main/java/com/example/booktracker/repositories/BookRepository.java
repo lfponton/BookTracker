@@ -2,6 +2,7 @@ package com.example.booktracker.repositories;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -10,8 +11,12 @@ import com.example.booktracker.api.GoogleBookAPI;
 import com.example.booktracker.api.ServiceGenerator;
 import com.example.booktracker.models.GoogleBookResponse;
 import com.example.booktracker.models.Book;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -22,14 +27,13 @@ import retrofit2.internal.EverythingIsNonNull;
 
 public class BookRepository {
     private static BookRepository instance;
-    private BooksLiveData allBooks;
+    private ReadingBooksLiveData readingBooks;
+    private FinishedBooksLiveData finishedBooks;
     private final MutableLiveData<List<Book>> searchedBooks;
     private DatabaseReference myRef;
-    private DatabaseReference booksRef;
-    private DatabaseReference bookRef;
+    private DatabaseReference readingBooksRef;
+    private DatabaseReference finishedBooksRef;
     private Book selectedBook;
-    private BookLiveData book;
-
 
     private static final String API_KEY = BuildConfig.API_KEY;
 
@@ -46,22 +50,46 @@ public class BookRepository {
     // Firebase
     public void init(String userId) {
         myRef = FirebaseDatabase.getInstance().getReference().child("users").child(userId);
-        booksRef = myRef.child("books");
-        book = new BookLiveData(booksRef);
-        allBooks = new BooksLiveData(booksRef);
+        readingBooksRef = myRef.child("books").child("reading");
+        finishedBooksRef = myRef.child("books").child("finished");
+        readingBooks = new ReadingBooksLiveData(readingBooksRef);
+        finishedBooks = new FinishedBooksLiveData(finishedBooksRef);
     }
 
     public void saveBook(Book book) {
-        DatabaseReference newChildRef = booksRef.push();
+        DatabaseReference newChildRef = readingBooksRef.push();
         String key = newChildRef.getKey();
-        booksRef.child(key).setValue(book);
+        readingBooksRef.child(key).setValue(book);
     }
 
+    public void markAsFinished(Book book) {
+        Query booToRemove = readingBooksRef.orderByChild("id").equalTo(book.getId());
+        booToRemove.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    dataSnapshot.getRef().removeValue();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        DatabaseReference newChildRef = finishedBooksRef.push();
+        String key = newChildRef.getKey();
+        finishedBooksRef.child(key).setValue(book);
+    }
+
+    public ReadingBooksLiveData getReadingBooks() {
+        return readingBooks;
+    }
+
+    public FinishedBooksLiveData getFinishedBooks() {
+        return finishedBooks;
+    }
     // End of Firebase
-
-    public BooksLiveData getAllBooks() {
-        return allBooks;
-    }
 
     // Google Books API
     public void searchForBook(String bookName) {
@@ -94,4 +122,6 @@ public class BookRepository {
     public Book getSelectedBook() {
         return selectedBook;
     }
+
+
 }

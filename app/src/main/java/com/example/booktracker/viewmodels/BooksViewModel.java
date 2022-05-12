@@ -49,8 +49,8 @@ public class BooksViewModel extends AndroidViewModel {
         userRepository.signOut();
     }
 
-    public LiveData<List<Book>> getAllBooks() {
-        return bookRepository.getAllBooks();
+    public LiveData<List<Book>> getReadingBooks() {
+        return bookRepository.getReadingBooks();
     }
 
     public LiveData<List<Book>> getSearchedBook() {
@@ -61,4 +61,11 @@ public class BooksViewModel extends AndroidViewModel {
         bookRepository.searchForBook(s);
     }
 
+    public LiveData<List<Book>> getFinishedBooks() {
+        return bookRepository.getFinishedBooks();
+    }
+
+    public void markAsFinished(Book book) {
+        bookRepository.markAsFinished(book);
+    }
 }

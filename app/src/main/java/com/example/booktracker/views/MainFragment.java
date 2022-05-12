@@ -19,9 +19,7 @@ import com.example.booktracker.adapters.ItemAPIModelAdapter;
 import com.example.booktracker.models.Book;
 import com.example.booktracker.viewmodels.BooksViewModel;
 import com.example.booktracker.R;
-import com.example.booktracker.adapters.BookAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainFragment extends Fragment {
 
@@ -48,7 +46,7 @@ public class MainFragment extends Fragment {
 
         ItemAPIModelAdapter adapter = new ItemAPIModelAdapter();
 
-        viewModel.getAllBooks().observe(getViewLifecycleOwner(), books -> {
+        viewModel.getReadingBooks().observe(getViewLifecycleOwner(), books -> {
             adapter.updateBookList(books);
             if (adapter.getItemCount() == 0)
                 recyclerView.setVisibility(View.GONE);

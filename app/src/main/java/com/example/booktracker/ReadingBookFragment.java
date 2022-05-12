@@ -55,8 +55,7 @@ public class ReadingBookFragment extends Fragment {
     }
 
     public void markAsFinished(Book book) {
-        // TODO: save book as finished
-        // viewModel.saveBook(book);
+        viewModel.markAsFinished(book);
         NavController navController = NavHostFragment.findNavController(this);
         navController.navigate(
                 R.id.action_readingBookFragment_to_tabFragment,

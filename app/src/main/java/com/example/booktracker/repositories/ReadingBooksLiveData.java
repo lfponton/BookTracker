@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class BooksLiveData extends LiveData<List<Book>> {
+public class ReadingBooksLiveData extends LiveData<List<Book>> {
     private final ValueEventListener listener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -31,7 +31,7 @@ public class BooksLiveData extends LiveData<List<Book>> {
     };
     DatabaseReference databaseReference;
 
-    public BooksLiveData(DatabaseReference ref) {
+    public ReadingBooksLiveData(DatabaseReference ref) {
         databaseReference = ref;
     }
 

@@ -40,7 +40,7 @@ public class FinishedFragment extends Fragment {
 
         ItemAPIModelAdapter adapter = new ItemAPIModelAdapter();
 
-        viewModel.getAllBooks().observe(getViewLifecycleOwner(), books -> {
+        viewModel.getFinishedBooks().observe(getViewLifecycleOwner(), books -> {
             adapter.updateBookList(books);
             if (adapter.getItemCount() == 0)
                 recyclerView.setVisibility(View.GONE);
