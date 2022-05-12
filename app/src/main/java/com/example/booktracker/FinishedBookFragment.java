@@ -20,6 +20,8 @@ public class FinishedBookFragment extends Fragment {
     TextView bookTitle;
     TextView bookAuthor;
     ImageView cover;
+    TextView pages;
+    TextView description;
     BooksViewModel viewModel;
 
     @Override
@@ -30,10 +32,14 @@ public class FinishedBookFragment extends Fragment {
         bookTitle = view.findViewById(R.id.finishedBookTitle);
         bookAuthor = view.findViewById(R.id.finishedBookAuthor);
         cover = view.findViewById(R.id.finishedBookDetailsCover);
+        pages = view.findViewById(R.id.pages);
+        description = view.findViewById(R.id.description);
         viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
         Book book = viewModel.getSelectedBook();
         bookTitle.setText(book.getVolumeInfo().getTitle());
         bookAuthor.setText(book.getVolumeInfo().getAuthors().get(0));
+        pages.setText(String.valueOf(book.getVolumeInfo().getPageCount()));
+        description.setText(book.getVolumeInfo().getDescription());
         String url = book.getVolumeInfo().getImageLinks().getThumbnail();
         Glide.with(this)
                 .asBitmap()

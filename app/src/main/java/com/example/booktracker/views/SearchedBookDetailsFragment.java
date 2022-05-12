@@ -25,6 +25,8 @@ public class SearchedBookDetailsFragment extends Fragment {
     TextView bookTitle;
     TextView bookAuthor;
     ImageView cover;
+    TextView pages;
+    TextView description;
     FloatingActionButton button;
     BooksViewModel viewModel;
 
@@ -36,10 +38,14 @@ public class SearchedBookDetailsFragment extends Fragment {
         bookTitle = view.findViewById(R.id.bookDetailsName);
         bookAuthor = view.findViewById(R.id.bookDetailsAuthor);
         cover = view.findViewById(R.id.bookDetailsCover);
+        pages = view.findViewById(R.id.pages);
+        description = view.findViewById(R.id.description);
         viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
         Book book = viewModel.getSelectedBook();
         bookTitle.setText(book.getVolumeInfo().getTitle());
         bookAuthor.setText(book.getVolumeInfo().getAuthors().get(0));
+        pages.setText(String.valueOf(book.getVolumeInfo().getPageCount()));
+        description.setText(book.getVolumeInfo().getDescription());
         button = view.findViewById(R.id.fab_save);
         button.setOnClickListener(v -> saveBook(book));
         String url = book.getVolumeInfo().getImageLinks().getThumbnail();
