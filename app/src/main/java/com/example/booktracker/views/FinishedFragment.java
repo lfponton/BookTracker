@@ -57,7 +57,7 @@ public class FinishedFragment extends Fragment {
 
         viewModel.setSelectedBook(book);
         navController.navigate(
-                R.id.action_finishedFragment_to_finishedBookFragment,
+                R.id.action_tabFragment_to_finishedBookFragment,
                 null,
                 new NavOptions.Builder()
                         .setEnterAnim(android.R.animator.fade_in)

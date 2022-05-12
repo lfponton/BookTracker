@@ -3,28 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/tabFragment">
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.booktracker.views.MainFragment"
         android:label="fragment_Main"
-        tools:layout="@layout/fragment_main" >
-        <action
-            android:id="@+id/action_mainFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_readingBookFragment"
-            app:destination="@id/readingBookFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/finishedFragment"
         android:name="com.example.booktracker.views.FinishedFragment"
         android:label="fragment_finished"
-        tools:layout="@layout/fragment_finished" >
-        <action
-            android:id="@+id/action_finishedFragment_to_finishedBookFragment"
-            app:destination="@id/finishedBookFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_finished" />
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.booktracker.views.SearchFragment"
@@ -41,8 +30,8 @@
         android:label="fragment_searched_book_details"
         tools:layout="@layout/fragment_searched_book_details" >
         <action
-            android:id="@+id/action_searchedBookDetailsFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_searchedBookDetailsFragment_to_tabFragment"
+            app:destination="@id/tabFragment" />
     </fragment>
     <fragment
         android:id="@+id/readingBookFragment"
@@ -50,13 +39,32 @@
         android:label="fragment_reading_book"
         tools:layout="@layout/fragment_reading_book" >
         <action
-            android:id="@+id/action_readingBookFragment_to_finishedFragment"
-            app:destination="@id/finishedFragment" />
+            android:id="@+id/action_readingBookFragment_to_tabFragment"
+            app:destination="@id/tabFragment" />
     </fragment>
     <fragment
         android:id="@+id/finishedBookFragment"
         android:name="com.example.booktracker.FinishedBookFragment"
         android:label="fragment_finished_book"
-        tools:layout="@layout/fragment_finished_book" />
+        tools:layout="@layout/fragment_finished_book" >
+        <action
+            android:id="@+id/action_finishedBookFragment_to_tabFragment"
+            app:destination="@id/tabFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tabFragment"
+        android:name="com.example.booktracker.TabFragment"
+        android:label="fragment_tab"
+        tools:layout="@layout/fragment_tab" >
+        <action
+            android:id="@+id/action_tabFragment_to_readingBookFragment"
+            app:destination="@id/readingBookFragment" />
+        <action
+            android:id="@+id/action_tabFragment_to_finishedBookFragment"
+            app:destination="@id/finishedBookFragment" />
+        <action
+            android:id="@+id/action_tabFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
 
 </navigation>

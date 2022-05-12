@@ -65,7 +65,7 @@ public class MainFragment extends Fragment {
     public void searchFragment() {
         NavController navController = NavHostFragment.findNavController(this);
         navController.navigate(
-                R.id.action_mainFragment_to_searchFragment,
+                R.id.action_tabFragment_to_searchFragment,
                 null,
                 new NavOptions.Builder()
                         .setEnterAnim(android.R.animator.fade_in)
@@ -80,7 +80,7 @@ public class MainFragment extends Fragment {
 
         viewModel.setSelectedBook(book);
         navController.navigate(
-                R.id.action_mainFragment_to_readingBookFragment,
+                R.id.action_tabFragment_to_readingBookFragment,
                 null,
                 new NavOptions.Builder()
                         .setEnterAnim(android.R.animator.fade_in)

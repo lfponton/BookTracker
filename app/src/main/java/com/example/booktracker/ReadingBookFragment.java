@@ -59,7 +59,7 @@ public class ReadingBookFragment extends Fragment {
         // viewModel.saveBook(book);
         NavController navController = NavHostFragment.findNavController(this);
         navController.navigate(
-                R.id.action_readingBookFragment_to_finishedFragment,
+                R.id.action_readingBookFragment_to_tabFragment,
                 null,
                 new NavOptions.Builder()
                         .setEnterAnim(android.R.animator.fade_in)

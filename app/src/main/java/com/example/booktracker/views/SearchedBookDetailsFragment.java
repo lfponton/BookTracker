@@ -57,7 +57,7 @@ public class SearchedBookDetailsFragment extends Fragment {
         viewModel.saveBook(book);
         NavController navController = NavHostFragment.findNavController(this);
         navController.navigate(
-                R.id.action_searchedBookDetailsFragment_to_mainFragment,
+                R.id.action_searchedBookDetailsFragment_to_tabFragment,
                 null,
                 new NavOptions.Builder()
                         .setEnterAnim(android.R.animator.fade_in)
