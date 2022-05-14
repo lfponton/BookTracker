@@ -15,4 +15,5 @@
     <string name="reading">Reading</string>
     <string name="finished">Finished</string>
     <string name="sign_in">SIGN IN</string>
+    <string name="unknown_author">UNKNOWN</string>
 </resources>

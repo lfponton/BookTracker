@@ -38,7 +38,12 @@ public class FinishedBookFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
         Book book = viewModel.getSelectedBook();
         bookTitle.setText(book.getVolumeInfo().getTitle());
-        bookAuthor.setText(book.getVolumeInfo().getAuthors().get(0));
+        if(book.getVolumeInfo().getAuthors() != null) {
+            bookAuthor.setText(book.getVolumeInfo().getAuthors().get(0));
+        }
+        else {
+            bookAuthor.setText(R.string.unknown_author);
+        }
         pages.setText(String.valueOf(book.getVolumeInfo().getPageCount()));
         description.setText(book.getVolumeInfo().getDescription());
         String url = book.getVolumeInfo().getImageLinks().getThumbnail();

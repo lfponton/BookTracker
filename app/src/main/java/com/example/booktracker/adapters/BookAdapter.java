@@ -43,7 +43,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
                 holder.author.setText(books.get(position).getVolumeInfo().getAuthors().get(0));
             }
         else {
-            holder.author.setText("UNKNOWN");
+            holder.author.setText(R.string.unknown_author);
         }
         String url = books.get(position).getVolumeInfo().getImageLinks().getThumbnail();
         Glide.with(holder.itemView)
