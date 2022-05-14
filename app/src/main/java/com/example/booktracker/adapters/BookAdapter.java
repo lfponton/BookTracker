@@ -45,7 +45,10 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         else {
             holder.author.setText(R.string.unknown_author);
         }
-        String url = books.get(position).getVolumeInfo().getImageLinks().getThumbnail();
+        String url = "";
+        if (books.get(position).getVolumeInfo().getImageLinks() != null) {
+            url = books.get(position).getVolumeInfo().getImageLinks().getThumbnail();
+        }
         Glide.with(holder.itemView)
                 .asBitmap()
                 .load(url)
