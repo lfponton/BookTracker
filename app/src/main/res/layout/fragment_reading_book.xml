@@ -27,17 +27,10 @@
                 android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/readingBookTitleLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Title: "
-                    android:textSize="20sp" />
-
-                <TextView
                     android:id="@+id/readingBookTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Book Title"
+                    android:text="@string/book_title"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -51,7 +44,7 @@
                     android:id="@+id/readingBookAuthorLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Author: "
+                    android:text="@string/author"
                     android:textSize="20sp"
                     />
 
@@ -59,7 +52,7 @@
                     android:id="@+id/readingBookAuthor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Author Name"
+                    android:text="@string/author_name"
                     android:textSize="20sp" />
             </LinearLayout>
             <ImageView
@@ -67,10 +60,10 @@
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/ic_baseline_book_24"
-                />
+                android:contentDescription="@string/book_cover" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -79,6 +72,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:text="Mark as Finished"/>
+    android:text="@string/mark_as_finished"/>
 
 </LinearLayout>

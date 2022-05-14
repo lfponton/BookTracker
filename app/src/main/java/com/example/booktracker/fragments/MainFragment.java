@@ -35,8 +35,6 @@ public class MainFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         recyclerView = view.findViewById(R.id.rv);
-        textView = view.findViewById(R.id.noBooksReading);
-        textViewTip = view.findViewById(R.id.addBooksTip);
         button = view.findViewById(R.id.fab);
         button.setOnClickListener(v -> searchFragment());
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
@@ -46,14 +44,7 @@ public class MainFragment extends Fragment {
 
         BookAdapter adapter = new BookAdapter();
 
-        viewModel.getReadingBooks().observe(getViewLifecycleOwner(), books -> {
-            adapter.updateBookList(books);
-            if (adapter.getItemCount() == 0)
-                recyclerView.setVisibility(View.GONE);
-            else
-                textView.setVisibility(View.GONE);
-                textViewTip.setVisibility(View.GONE);
-        });
+        viewModel.getReadingBooks().observe(getViewLifecycleOwner(), adapter::updateBookList);
 
         recyclerView.setAdapter(adapter);
         adapter.setOnClickListener(this::bookDetails);

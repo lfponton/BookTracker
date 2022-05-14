@@ -32,7 +32,6 @@ public class FinishedFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_finished, container, false);
         recyclerView = view.findViewById(R.id.rv);
-        textView = view.findViewById(R.id.finishedBooks);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.hasFixedSize();
 
@@ -40,13 +39,7 @@ public class FinishedFragment extends Fragment {
 
         BookAdapter adapter = new BookAdapter();
 
-        viewModel.getFinishedBooks().observe(getViewLifecycleOwner(), books -> {
-            adapter.updateBookList(books);
-            if (adapter.getItemCount() == 0)
-                recyclerView.setVisibility(View.GONE);
-            else
-                textView.setVisibility(View.GONE);
-        });
+        viewModel.getFinishedBooks().observe(getViewLifecycleOwner(), adapter::updateBookList);
         recyclerView.setAdapter(adapter);
         adapter.setOnClickListener(this::bookDetails);
         return view;

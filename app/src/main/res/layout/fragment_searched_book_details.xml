@@ -30,14 +30,14 @@
                     android:id="@+id/bookDetailsName"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:text="Book Title"
+                    android:text="@string/book_title"
                     android:textSize="23sp" />
 
                 <ImageView
                     android:id="@+id/bookDetailsCover"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
                     android:src="@drawable/ic_baseline_book_24" />
 
             </LinearLayout>
@@ -51,7 +51,7 @@
                     android:id="@+id/bookAuthorLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Author: "
+                    android:text="@string/author"
                     android:textSize="20sp"
                     />
 
@@ -59,7 +59,7 @@
                     android:id="@+id/bookDetailsAuthor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Author Name"
+                    android:text="@string/author_name"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -74,7 +74,7 @@
                     android:id="@+id/pagesLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pages: "
+                    android:text="@string/pages"
                     android:textSize="20sp"
                     />
 
@@ -82,7 +82,7 @@
                     android:id="@+id/pages"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Number of Pages"
+                    android:text="@string/number_of_pages"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -96,7 +96,7 @@
                     android:id="@+id/descriptionLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Description: "
+                    android:text="@string/description"
                     android:textSize="20sp" />
             </LinearLayout>
             <LinearLayout
@@ -108,7 +108,7 @@
                     android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="360dp"
-                    android:text="Description Content"
+                    android:text="@string/description_content"
                     android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
@@ -124,7 +124,7 @@
         android:layout_margin="16dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="26dp"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/add_book"
         android:src="@drawable/ic_baseline_add_24" />
 
 </RelativeLayout>
