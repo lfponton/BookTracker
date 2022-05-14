@@ -6,17 +6,17 @@
     app:startDestination="@id/tabFragment">
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.booktracker.views.MainFragment"
+        android:name="com.example.booktracker.fragments.MainFragment"
         android:label="fragment_Main"
         tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/finishedFragment"
-        android:name="com.example.booktracker.views.FinishedFragment"
+        android:name="com.example.booktracker.fragments.FinishedFragment"
         android:label="fragment_finished"
         tools:layout="@layout/fragment_finished" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.booktracker.views.SearchFragment"
+        android:name="com.example.booktracker.fragments.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchedBookDetailsFragment"
-        android:name="com.example.booktracker.views.SearchedBookDetailsFragment"
+        android:name="com.example.booktracker.fragments.SearchedBookDetailsFragment"
         android:label="fragment_searched_book_details"
         tools:layout="@layout/fragment_searched_book_details" >
         <action
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/readingBookFragment"
-        android:name="com.example.booktracker.ReadingBookFragment"
+        android:name="com.example.booktracker.fragments.ReadingBookFragment"
         android:label="fragment_reading_book"
         tools:layout="@layout/fragment_reading_book" >
         <action
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/finishedBookFragment"
-        android:name="com.example.booktracker.FinishedBookFragment"
+        android:name="com.example.booktracker.fragments.FinishedBookFragment"
         android:label="fragment_finished_book"
         tools:layout="@layout/fragment_finished_book" >
         <action
@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/tabFragment"
-        android:name="com.example.booktracker.TabFragment"
+        android:name="com.example.booktracker.fragments.TabFragment"
         android:label="fragment_tab"
         tools:layout="@layout/fragment_tab" >
         <action

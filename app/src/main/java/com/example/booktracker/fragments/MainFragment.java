@@ -1,4 +1,4 @@
-package com.example.booktracker.views;
+package com.example.booktracker.fragments;
 
 import android.os.Bundle;
 
@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.booktracker.adapters.ItemAPIModelAdapter;
+import com.example.booktracker.adapters.BookAdapter;
 import com.example.booktracker.models.Book;
 import com.example.booktracker.viewmodels.BooksViewModel;
 import com.example.booktracker.R;
@@ -44,7 +44,7 @@ public class MainFragment extends Fragment {
 
         viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
 
-        ItemAPIModelAdapter adapter = new ItemAPIModelAdapter();
+        BookAdapter adapter = new BookAdapter();
 
         viewModel.getReadingBooks().observe(getViewLifecycleOwner(), books -> {
             adapter.updateBookList(books);

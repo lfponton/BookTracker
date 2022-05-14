@@ -11,6 +11,8 @@ import com.example.booktracker.api.GoogleBookAPI;
 import com.example.booktracker.api.ServiceGenerator;
 import com.example.booktracker.models.GoogleBookResponse;
 import com.example.booktracker.models.Book;
+import com.example.booktracker.repositories.livedata.FinishedBooksLiveData;
+import com.example.booktracker.repositories.livedata.ReadingBooksLiveData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

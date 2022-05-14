@@ -1,4 +1,4 @@
-package com.example.booktracker.repositories;
+package com.example.booktracker.repositories.livedata;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -9,14 +9,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
-public class ItemAPIModelsLiveData extends LiveData<Book> {
+public class BookLiveData extends LiveData<Book> {
     private final ValueEventListener listener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
-           for(DataSnapshot dataSnapshot: snapshot.getChildren())
-           {
-               Book book = dataSnapshot.getValue(Book.class);
-           }
         }
 
         @Override
@@ -25,7 +21,7 @@ public class ItemAPIModelsLiveData extends LiveData<Book> {
     };
     DatabaseReference databaseReference;
 
-    public ItemAPIModelsLiveData(DatabaseReference ref) {
+    public BookLiveData(DatabaseReference ref) {
         databaseReference = ref;
     }
 

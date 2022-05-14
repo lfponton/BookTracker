@@ -1,4 +1,4 @@
-package com.example.booktracker.views;
+package com.example.booktracker.fragments;
 
 import android.os.Bundle;
 
@@ -19,7 +19,7 @@ import android.widget.EditText;
 import com.example.booktracker.models.Book;
 import com.example.booktracker.viewmodels.BooksViewModel;
 import com.example.booktracker.R;
-import com.example.booktracker.adapters.ItemAPIModelAdapter;
+import com.example.booktracker.adapters.BookAdapter;
 
 public class SearchFragment extends Fragment {
 
@@ -41,7 +41,7 @@ public class SearchFragment extends Fragment {
         recyclerView.hasFixedSize();
         viewModel = new ViewModelProvider(this).get(BooksViewModel.class);
         button.setOnClickListener(v -> searchForBook(viewModel));
-        ItemAPIModelAdapter adapter = new ItemAPIModelAdapter();
+        BookAdapter adapter = new BookAdapter();
         recyclerView.setAdapter(adapter);
         viewModel.getSearchedBook().observe(getViewLifecycleOwner(), adapter::updateBookList);
         adapter.setOnClickListener(this::bookDetails);

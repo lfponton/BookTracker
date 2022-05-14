@@ -1,4 +1,4 @@
-package com.example.booktracker.repositories;
+package com.example.booktracker.repositories.livedata;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
